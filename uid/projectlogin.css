@@ -1,0 +1,78 @@
+body {
+    height: 100vh;
+    width: 100%;
+    background: url('never late image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 30px;
+    text-align: center;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 5px 5px 5px black;
+    backdrop-filter: blur(10px); 
+}
+.form-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    display: block;
+}
+.form-container button {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+.google, .signup {
+    color: white;
+    background: linear-gradient(to right, #4E342E, #D7A86E);
+    transition: background-color 1s;
+}
+.google:hover {
+    background: linear-gradient(to right, #4E342E, #D7A86E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.signup:hover {
+    background: linear-gradient(to right, #4E342E, #D7A86E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.facebook {
+    background: linear-gradient(rgb(3, 3, 242), rgb(7, 7, 79));
+    color: white;
+}
+.facebook:hover {
+    background: linear-gradient(rgb(7, 7, 79), rgb(3, 3, 242));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.error {
+    color: red;
+
+}
+.success{
+    color: green;
+}
+input.error{
+    border: 2px solid red;
+}
+input.success{
+    border: 2px solid green;
+}

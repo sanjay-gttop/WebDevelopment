@@ -1,0 +1,256 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    height: 100vh;
+    background: #42455a;
+}
+
+/* Navigation Bar */
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo */
+.logo {
+    width: 140px;
+    border-radius: 30px;
+    scale: 2;
+    margin-right: 100px;
+}
+
+.menu ul li a {
+    position: relative;
+    overflow: hidden;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #6c0094, #512da8);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu ul li a:hover {
+    color: #512da8;
+}
+
+.menu ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: center;
+}
+
+.menu ul li {
+    transition: transform 0.3s ease;
+}
+
+.menu ul li:hover {
+    transform: translateY(-3px);
+}
+.btn, .login-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 40px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background: transparent;
+    z-index: 1;
+}
+
+.btn::before, .login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #6c0094, #512da8);
+    z-index: -1;
+    transition: opacity 0.5s ease;
+}
+
+.btn {
+    margin-right: -30px;
+}
+
+.login-btn {
+    margin-right: 20px;
+}
+
+.btn:hover, .login-btn:hover {
+    border-color: #512da8;
+    color: #512da8;
+    border-radius: 20px;
+}
+
+.btn:hover::before, .login-btn:hover::before {
+    opacity: 0;
+}
+
+/* ... (rest of the styles remain unchanged) ... */
+.aim1{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fade-in 0.5s linear forwards;
+    animation-delay: 3.35s;
+}
+.aim2{
+    opacity: 0;
+    transform: translateY(-30px); /* Corrected */
+    animation: fade-in 0.5s linear forwards;
+    animation-delay: 3.5s;}
+.aim3{
+    opacity: 0;
+    transform: translateY(30px); 
+    animation: fade-in 0.5s linear forwards;
+    animation-delay: 4s;}
+.aim4{
+    opacity: 0;
+    transform: translateY(-30px); 
+    animation: fade-in 0.5s linear forwards;
+    animation-delay: 4.25s;}
+.aim5{
+    opacity: 0;
+    transform: translateX(30px);
+    animation: fade-in 0.5s linear forwards;
+    animation-delay: 4.5s;
+}
+.aim6{
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: fade-in 0.5s linear forwards;
+    animation-delay: 5s;
+}
+.aim7 {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: fade-in 0.5s linear forwards;
+    animation-delay: 3.5s;
+}
+
+.aim8{
+    opacity: 0;
+    transform: translateX(30px);
+    animation: fade-in 0.5s linear forwards;
+    animation-delay: 3s;
+}
+
+.aim9{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fade-in 0.5s linear forwards;
+    animation-delay: 2.5s;
+}
+
+.banner {
+    width: 80%;
+    position: absolute;
+    top: 55%; /* Changed from 30% to 25% */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Added Y-axis translation */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    scale: 1;
+}
+
+.app-text .btn {
+    padding-bottom: 20px;
+    margin-top: 30px;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+}
+/* Right Image */
+.app-picture img {
+    width: 100%;
+    max-width: 400px;
+    object-fit: cover;
+    transform: scale(1.1); /* 10% zoom */
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center; /* Ensures zoom centers properly */
+}
+
+.app-picture {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Contains the zoomed image within container */
+    margin-top: -30px;
+}
+h1 {
+    font-size: 70px;
+    color: #222;
+}
+h2 {
+    font-size: 30px;
+}
+small{
+    font-size: 20px;
+}
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 40px; 
+    color: #fff;
+    background-image: linear-gradient(to right, #6c0094,#512da8);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+    margin-right: -30px;
+    margin-bottom: 0;
+}
+.btn:hover{
+    border: 2px solid #512da8;
+    border-radius: 20px;
+    color: #512da8;
+    background: transparent;
+}
+@keyframes fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        transform: translatex(0);
+    }
+}
+.menu .ul .li :hover{
+    color: #512da8;
+}

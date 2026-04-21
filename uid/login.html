@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        .right {
+            position: relative;
+            width: 50%;
+            height: 100%;
+        }
+        form {
+            border: 2px solid black;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px 5px black;
+            width: 50%;
+            background-color: white;
+        }
+        hr {
+            margin: 15px;
+            border-bottom: 1px solid white;
+        }
+        input[type="text"], input[type="tel"], input[type="password"], input[type="email"], input[type="number"] {
+            margin-bottom: 15px;
+            border-radius: 3px;
+            padding: 10px;
+            width: 100%;
+        }
+        label {
+            font-weight: bold;
+            font-size: large;
+        }
+        #main {
+            background: linear-gradient(rgb(143, 62, 173), rgb(56, 56, 202));
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+        .sign:hover {
+            background: linear-gradient(rgb(56, 56, 202), rgb(143, 62, 173));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            transition: background-color 1s;
+        }
+        .sign {
+            width: 100%;
+            background: linear-gradient(rgb(143, 62, 173), rgb(56, 56, 202));
+            color: white;
+            height: 40px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+        input.error {
+            border: 2px solid red;
+        }
+        input.success {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="right">
+            <img src="study.jpeg" alt="study">
+        </div>
+        <div style="display: flex;justify-content:center;align-items:center;width:50%;height:100%;">
+            <form> 
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Name">
+                <span class="error"></span>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com">
+                <span class="error"></span>
+                
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="1234567890">
+                <span class="error"></span>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password">
+                <span class="error"></span>
+                
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="Age">
+                <span class="error"></span>
+                
+                <div>
+                    Gender<br>
+                    <label><input type="radio" name="gender"> Male</label>
+                    <label><input type="radio" name="gender"> Female</label>
+                    <label><input type="radio" name="gender"> Other</label>
+                </div>
+                
+                <input type="submit" value="Sign Up" class="sign">
+                <hr>
+                <button onclick="window.location.href='https://accounts.google.com/signin'" class="sign">Google</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const name = document.getElementById("name");
+            const email = document.getElementById("email");
+            const phone = document.getElementById("phone");
+            const password = document.getElementById("password");
+            const age = document.getElementById("age");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                if (validateInput()) {
+                    alert("Form submitted successfully!");
+                }
+            });
+
+            function setError(element, message) {
+                const errorDisplay = element.nextElementSibling;
+                errorDisplay.innerText = message;
+                element.classList.add("error");
+                element.classList.remove("success");
+            }
+
+            function setSuccess(element) {
+                const errorDisplay = element.nextElementSibling;
+                errorDisplay.innerText = "";
+                element.classList.add("success");
+                element.classList.remove("error");
+            }
+
+            function validateInput() {
+                let isValid = true;
+                
+                const nameValue = name.value.trim();
+                const emailValue = email.value.trim();
+                const phoneValue = phone.value.trim();
+                const passwordValue = password.value.trim();
+                const ageValue = age.value.trim();
+
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const phonePattern = /^[0-9]{10}$/;
+
+                if (nameValue === "") {
+                    setError(name, "Name is required");
+                    isValid = false;
+                } else {
+                    setSuccess(name);
+                }
+
+                if (!emailPattern.test(emailValue)) {
+                    setError(email, "Invalid email format");
+                    isValid = false;
+                } else {
+                    setSuccess(email);
+                }
+
+                if (!phonePattern.test(phoneValue)) {
+                    setError(phone, "Phone number must be 10 digits");
+                    isValid = false;
+                } else {
+                    setSuccess(phone);
+                }
+
+                if (passwordValue.length < 6) {
+                    setError(password, "Password must be at least 6 characters");
+                    isValid = false;
+                } else {
+                    setSuccess(password);
+                }
+
+                if (isNaN(ageValue) || ageValue === "" || parseInt(ageValue) < 6) {
+                    setError(age, "You must be at least 6 years old");
+                    isValid = false;
+                } else {
+                    setSuccess(age);
+                }
+
+                return isValid;
+            }
+        });
+    </script>
+</body>
+</html>
+    
